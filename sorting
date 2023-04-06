@@ -1,8 +1,57 @@
+Problem definition :
+Given an array of size N containing only 0s, 1s, and 2s; sort the array in ascending order.
 Input: 
-N = 5
-arr[]= {0 2 1 2 0}
+  N = 5
+  arr[]= {0 2 1 2 0}
 Output:
-0 0 1 2 2
-Explanation:
-0s 1s and 2s are segregated 
-into ascending order.
+  0 0 1 2 2
+
+
+// code starts here 
+
+class Solution
+{
+    public static void sort012(int a[], int n){
+        
+        // counters for zeros , one's , two's in the array
+        int count0 = 0 , count1 = 0 , count2 = 0;
+       
+       int i = 0;
+        while(n>0){
+        // loop through the number to count the 0's, 1's , 2's
+            switch(a[i]){
+                case 0:
+                    count0++;
+                    break;
+                case 1:
+                    count1++;
+                    break;
+                case 2:
+                    count2++;
+                    break;
+            }
+        n--;
+        i++;
+        }
+        
+        i=0;
+        //place 0's at the beginning , 1's at the middle , 2's at the last 
+        while(count0 > 0){
+            a[i] = 0;
+            i++;
+            count0--;
+        }
+        while(count1 > 0){
+            a[i] = 1;
+            i++;
+            count1--;
+        }
+        while(count2 > 0){
+            a[i] = 2;
+            i++;
+            count2--;
+        }
+        
+    
+    }
+}
